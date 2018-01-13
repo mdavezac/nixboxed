@@ -30,8 +30,13 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell",
     inline: "nixos-rebuild switch --upgrade"
 
-  config.vm.provision :nixos, run: 'always', path: "./configuration.nix"
-  # config.vm.provision "file", source: "./polybar.config", destination: "~vagrant/.config/polybar/config"
+  config.vm.provision :nixos, run: 'always', path: "./config/nix"
+  config.vm.provision "file", source: "./config/polybar", destination: "~vagrant/.config/polybar/config"
+  config.vm.provision "file", source: "./config/i3", destination: "~vagrant/.config/i3/config"
+  config.vm.provision "file", source: "./config/i3blocks", destination: "~vagrant/.config/i3/i3blocks.conf"
+  config.vm.provision "file", source: "./config/compton", destination: "~vagrant/.config/compton.conf"
+  config.vm.provision "file", source: "./config/background.png", destination: "~vagrant/Pictures/background.png"
+  config.vm.provision "file", source: "./config/nixpkgs.nix", destination: "~vagrant/.nixpkgs/config.nix"
 
 
   #

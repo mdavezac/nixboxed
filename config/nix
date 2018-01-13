@@ -10,6 +10,8 @@
         neovim
         git
         zsh
+        lxappearance
+        vscode
     ];
 
     services.xserver.windowManager.i3 = {
