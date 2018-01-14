@@ -34,10 +34,12 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "./config/polybar", destination: "~vagrant/.config/polybar/config"
   config.vm.provision "file", source: "./config/i3", destination: "~vagrant/.config/i3/config"
   config.vm.provision "file", source: "./config/i3blocks", destination: "~vagrant/.config/i3/i3blocks.conf"
-  config.vm.provision "file", source: "./config/compton", destination: "~vagrant/.config/compton.conf"
+  # config.vm.provision "file", source: "./config/compton", destination: "~vagrant/.config/compton.conf"
   config.vm.provision "file", source: "./config/background.png", destination: "~vagrant/Pictures/background.png"
   config.vm.provision "file", source: "./config/nixpkgs.nix", destination: "~vagrant/.nixpkgs/config.nix"
   config.vm.provision "file", source: "./config/gtk-3.0.ini", destination: "~vagrant/.config/gtk-3.0/settings.ini"
+  config.vm.provision "file", source: "./config/termite.ini", destination: "~vagrant/.config/termite/config"
+  # config.vm.provision "file", source: "./config/Xresources", destination: "~vagrant/.Xresources"
 
 
   #
