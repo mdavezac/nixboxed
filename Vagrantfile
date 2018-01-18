@@ -21,25 +21,29 @@ Vagrant.configure("2") do |config|
     vb.memory = "12276"
     vb.cpus = 4
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "90"]
+    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
   end
 
   # config.vm.provision "file", source: "~/.ssh", destination: "/home/vagrant/.ssh"
 
   config.vm.provision "shell",
     inline: "nix-channel --add https://nixos.org/channels/nixos-17.09 nixos"
-  config.vm.provision "shell",
-    inline: "nixos-rebuild switch --upgrade"
+  config.vm.provision "shell", inline: "nixos-rebuild switch --upgrade"
+  config.vm.provision "shell", inline: "nix-collect-garbage -d"
 
-  config.vm.provision :nixos, run: 'always', path: "./config/nix"
+  config.vm.provision "file", source: "./config/launch_polybar.sh", destination: "~vagrant/.config/polybar/launch.sh"
   config.vm.provision "file", source: "./config/polybar", destination: "~vagrant/.config/polybar/config"
   config.vm.provision "file", source: "./config/i3", destination: "~vagrant/.config/i3/config"
   config.vm.provision "file", source: "./config/i3blocks", destination: "~vagrant/.config/i3/i3blocks.conf"
-  # config.vm.provision "file", source: "./config/compton", destination: "~vagrant/.config/compton.conf"
-  config.vm.provision "file", source: "./config/background.png", destination: "~vagrant/Pictures/background.png"
-  config.vm.provision "file", source: "./config/nixpkgs.nix", destination: "~vagrant/.nixpkgs/config.nix"
+  config.vm.provision "file", source: "./config/compton", destination: "~vagrant/.config/compton.conf"
+  config.vm.provision "file", source: "./config/background.jpg", destination: "~vagrant/Pictures/background.jpg"
+  config.vm.provision "file", source: "./config/nixpkgs.nix", destination: "~vagrant/.config/nixpkgs/config.nix"
   config.vm.provision "file", source: "./config/gtk-3.0.ini", destination: "~vagrant/.config/gtk-3.0/settings.ini"
   config.vm.provision "file", source: "./config/termite.ini", destination: "~vagrant/.config/termite/config"
-  # config.vm.provision "file", source: "./config/Xresources", destination: "~vagrant/.Xresources"
+  config.vm.provision "file", source: "./config/Xresources", destination: "~vagrant/.Xresources"
+  config.vm.provision :nixos, run: 'always', path: "./config/nix"
+  config.vm.provision "shell", privileged: false, inline: "nix-env -iA nixos.all"
 
 
   #

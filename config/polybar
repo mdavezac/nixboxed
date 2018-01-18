@@ -21,7 +21,7 @@ alert = #bd2c40
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 35
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
@@ -30,7 +30,7 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 0
 line-color = #f00
 
 border-size = 4
@@ -42,13 +42,15 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-1 = "Deja Vue Sans:size=22"
+font-2 = "Source Code Sans:size=22"
+font-0 = "Monospace Sans:size=22"
 
-modules-left = bspwm
+; bspwm
+modules-left = i3
 modules-center = 
-modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = cpu date powermenu 
+; filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
