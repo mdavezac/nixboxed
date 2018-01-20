@@ -42,9 +42,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-1 = "Deja Vue Sans:size=22"
-font-2 = "Source Code Sans:size=22"
-font-0 = "Monospace Sans:size=22"
+font-0 = "DejaVuSansMono Nerd Font:size=22"
 
 ; bspwm
 modules-left = i3
@@ -189,7 +187,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage%%
@@ -250,7 +248,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 

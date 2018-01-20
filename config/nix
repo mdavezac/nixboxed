@@ -13,7 +13,7 @@
 
         curl
     ];
- 
+
     fonts = {
       enableDefaultFonts = false;
       fonts = with pkgs; [
@@ -23,6 +23,8 @@
         ubuntu_font_family
         liberation_ttf
         google-fonts
+        font-awesome-ttf
+        nerdfonts
       ];
       fontconfig = {
         antialias = false;

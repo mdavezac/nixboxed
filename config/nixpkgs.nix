@@ -12,6 +12,10 @@
         githubSupport = true;
     };
 
+    nerdfonts = pkgs.nerdfonts.override {
+        withFonts="Deja Vue";
+    };
+
     all = pkgs.buildEnv {
       name = "all";
       paths = with pkgs; [
@@ -19,6 +23,7 @@
       
         vscode
         neovim
+        xsel
 
         git
         zsh

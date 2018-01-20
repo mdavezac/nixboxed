@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell",
     inline: "nix-channel --add https://nixos.org/channels/nixos-17.09 nixos"
-  config.vm.provision "shell", inline: "nixos-rebuild switch --upgrade"
+  config.vm.provision "shell", inline: "nixos-rebuild switch --upgrade --show-trace"
   config.vm.provision "shell", inline: "nix-collect-garbage -d"
 
   config.vm.provision "file", source: "./config/launch_polybar.sh", destination: "~vagrant/.config/polybar/launch.sh"
