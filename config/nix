@@ -24,10 +24,14 @@
         liberation_ttf
         google-fonts
         font-awesome-ttf
+        material-icons
+        siji
+        unifont
+        noto-fonts
         nerdfonts
       ];
       fontconfig = {
-        antialias = false;
+        antialias = true;
         hinting.autohint = false;
         ultimate.enable = true;
         penultimate.enable = true;

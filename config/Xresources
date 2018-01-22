@@ -1,9 +1,9 @@
 Xft.lcdfilter: lcddefault
 Xft.hinting: 1
 Xft.hintstyle: hintslight
-Xft.autohint: 0
+Xft.autohint: 1
 Xft.rgba: rgb
-Xft.antialias: 0
+Xft.antialias: 1
 ! Enable the extended coloring options
 rofi.color-enabled: true
 !                  bg       border   separator
