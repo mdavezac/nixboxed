@@ -12,6 +12,9 @@ active-opacity = 1.0;
 frame-opacity = 0.0;
 fading = true;
 inactive-dim = 0.0;
+shadow-exclude = [
+    "class_g = 'Polybar'"
+];
 
 wintypes : 
 {
